@@ -141,11 +141,8 @@ def test_triangles_invalid_indices_number(valid_pointset):
 #######################
 
 
-def test_triangulate_three_points(valid_three_points):
+def test_triangulate_three_points(triangulator):
     """Vérifie la triangulation basique de 3 points (doit donner 1 triangle)."""
-    valid_pointset_bytes = build_pointset_bytes(valid_three_points)
-    points_set = PointSet(valid_pointset_bytes)
-    triangulator = Triangulator(point_set=points_set)
     result = triangulator.triangulate()
 
     assert len(result.triangles) == 1
